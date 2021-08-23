@@ -1,30 +1,58 @@
-import React, { memo } from 'react'
+import React, { memo, useRef } from 'react'
 import { styled } from '@linaria/react'
+import { FirebaseDatabaseMutation } from '@react-firebase/database'
+import firebase from 'firebase'
+import get from 'lodash.get'
+import set from 'lodash.set'
 
-import externalLinks from 'components/externalLinks.json'
+import externalLinks from 'data/externalLinks.json'
+
+import Button from 'components/core/Button'
+import { Content } from 'components/core/Layout'
+import { Subtitle, Title } from 'components/core/Type'
 import { LinkGroups } from 'components/Links'
 
-const Column = styled.div`
+const Form = styled.form`
 	display: flex;
 	flex-direction: column;
-	padding: 0px 16px;
-	justify-content: center;
-	align-items: center;
-`
-
-const Title = styled.h1`
-	font-size: 96px;
-	letter-spacing: 4px;
-	text-align: center;
 `
 
 const NotHawesPage = () => {
+	const newCommentFieldRef = useRef()
 	return (
-		<Column>
-			<Title>You are not Hawes</Title>
-			<h2>Links</h2>
-			<LinkGroups groups={externalLinks} />
-		</Column>
+		<>
+			<Title>Team Hawes</Title>
+			<Content>
+				{/*  */}
+				<Subtitle>Leave Feedback for Hawes</Subtitle>
+				<FirebaseDatabaseMutation type="push" path="feedback">
+					{({ runMutation }) => (
+						<Form
+							onSubmit={async ev => {
+								ev.preventDefault()
+								const newComment = get(newCommentFieldRef, 'current.value', '')
+								await runMutation({
+									comment: newComment,
+									created_at: firebase.database.ServerValue.TIMESTAMP,
+									updated_at: firebase.database.ServerValue.TIMESTAMP,
+								})
+								set(newCommentFieldRef, 'current.value', '')
+							}}
+						>
+							<label htmlFor="comment">Comment</label>
+							<input id="comment" name="comment" ref={newCommentFieldRef} />
+							<br />
+							<Button type="submit" small>
+								Submit
+							</Button>
+						</Form>
+					)}
+				</FirebaseDatabaseMutation>
+				{/*  */}
+				<Subtitle>Useful Links</Subtitle>
+				<LinkGroups groups={externalLinks} />
+			</Content>
+		</>
 	)
 }
 

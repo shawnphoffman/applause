@@ -3,15 +3,16 @@ import { Link } from 'react-router-dom'
 import { styled } from '@linaria/react'
 import * as Panelbear from '@panelbear/panelbear-js'
 
+const Wrapper = styled.div`
+	display: flex;
+	justify-content: center;
+`
+
 const StyledButton = styled(Link)`
-	padding: 16px 32px;
-	/* border: 0px; */
 	border: 2px solid #222;
 	margin: 16px;
 	font-weight: 700;
-	font-size: 32px;
 	border-radius: 8px;
-	min-width: 300px;
 	background-color: #efefef;
 	text-align: center;
 	display: inline-block;
@@ -20,6 +21,10 @@ const StyledButton = styled(Link)`
 		text-decoration: none;
 		background-color: #dedede;
 	}
+
+	font-size: ${props => (props.small ? '20px' : '32px')};
+	padding: ${props => (props.small ? '8px 16px' : '16px 32px')};
+	min-width: ${props => (props.small ? '175px' : '300px')};
 `
 
 const Button = ({ eventName, ...rest }) => {
@@ -28,10 +33,15 @@ const Button = ({ eventName, ...rest }) => {
 			Panelbear.track(`Button Click - ${eventName}`)
 		}
 	}, [eventName])
+
+	const isLink = !!rest.to || !!rest.href
+
+	const as = isLink ? Link : 'div'
+
 	return (
-		<div onClick={handleClick}>
-			<StyledButton {...rest} />
-		</div>
+		<Wrapper onClick={handleClick}>
+			<StyledButton as={as} {...rest} />
+		</Wrapper>
 	)
 }
 

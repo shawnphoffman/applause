@@ -1,5 +1,7 @@
 import React, { memo } from 'react'
 
+import { H3 } from './core/Type'
+
 export const Links = memo(({ links }) => {
 	return (
 		<ul>
@@ -19,7 +21,7 @@ export const LinkGroups = ({ groups }) => {
 		<div>
 			{groups.map(group => (
 				<React.Fragment key={group.title}>
-					<h3>{group.title}</h3>
+					<H3>{group.title}</H3>
 					<Links links={group.links} />
 				</React.Fragment>
 			))}
