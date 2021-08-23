@@ -24,7 +24,7 @@ function App() {
 					<FirebaseDatabaseProvider firebase={firebase} {...firebaseConfig}>
 						<Router>
 							<Switch>
-								<Route path="/">
+								<Route path="/" exact>
 									<LandingPage />
 								</Route>
 								<Route>
