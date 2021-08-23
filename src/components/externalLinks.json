@@ -1,0 +1,80 @@
+[
+	{
+		"title": "Blue Harvest",
+		"links": [
+			{
+				"title": "Twitter",
+				"href": "https://twitter.com/BlueHarvestPod"
+			},
+			{
+				"title": "Patreon",
+				"href": "https://www.patreon.com/blueharvestpodcast"
+			},
+			{
+				"title": "Apple Podcasts",
+				"href": "https://podcasts.apple.com/us/podcast/blue-harvest-a-star-wars-podcast/id1009917662"
+			},
+			{
+				"title": "Spotify",
+				"href": "https://open.spotify.com/show/3Krn2ePCbILvzORISjh2PT"
+			},
+			{
+				"title": "Stitcher",
+				"href": "https://www.stitcher.com/show/blue-harvest-a-star-wars-podcast"
+			},
+			{
+				"title": "PodBean",
+				"href": "https://blueharvestpodcast.podbean.com/"
+			},
+			{
+				"title": "Twitch",
+				"href": "http://www.twitch.tv/blueharvestpod"
+			},
+			{
+				"title": "YouTube",
+				"href": "https://www.youtube.com/BlueHarvestAStarWarsPodcast"
+			},
+			{
+				"title": "Merch",
+				"href": "https://www.teepublic.com/user/blueharvestpodcast"
+			},
+			{
+				"title": "Voicemails and Email Submission",
+				"href": "mailto:blueharvestpod@gmail.com"
+			},
+			{
+				"title": "Stoned Cobra",
+				"href": "http://stonedcobra.bandcamp.com/"
+			}
+		]
+	},
+	{
+		"title": "High Potion",
+		"links": [
+			{
+				"title": "Twitter",
+				"href": "https://twitter.com/HighPotionPod"
+			},
+			{
+				"title": "Apple Podcasts",
+				"href": "https://podcasts.apple.com/ca/podcast/high-potion/id1571377051"
+			},
+			{
+				"title": "Spotify",
+				"href": "https://open.spotify.com/show/3Di7qFLy6FoNg6zcBGaOnK"
+			},
+			{
+				"title": "Anchor",
+				"href": "https://anchor.fm/highpotion"
+			},
+			{
+				"title": "Merch",
+				"href": "https://www.teepublic.com/user/high-potion-podcast"
+			},
+			{
+				"title": "Voicemails and Email Submission",
+				"href": "mailto:highpotionpod@gmail.com"
+			}
+		]
+	}
+]

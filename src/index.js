@@ -6,8 +6,7 @@ import * as Panelbear from '@panelbear/panelbear-js'
 import * as Sentry from '@sentry/react'
 import { Integrations } from '@sentry/tracing'
 
-// import App from './App'
-import App from './ComingSoon'
+import App from './App'
 import reportWebVitals from './reportWebVitals'
 
 const isProduction = process.env.NODE_ENV === 'production'

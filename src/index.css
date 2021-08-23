@@ -4,29 +4,14 @@
 
 html {
 	margin: 0px;
-	/* From normalize */
 	line-height: 1.15;
 }
 
 body {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Urbanist', sans-serif;
 	margin: 0px;
 	padding: 0px;
 	content-visibility: auto;
-	/* background: #231f20; */
-}
-
-label {
-	margin-left: 5px;
-}
-
-ul {
-	margin: 0;
-	padding-inline-start: 12px;
-}
-
-li {
-	margin-bottom: 6px;
 }
 
 a {
@@ -40,16 +25,6 @@ a {
 	}
 }
 
-@keyframes load {
-	from {
-			left: -150px;
-	}
-	to   {
-			left: 100%;
-	}
-}
-
-/* Normalize overrides */
 [type=checkbox], [type=radio] {
 	box-sizing: border-box;
 	padding: 0;
