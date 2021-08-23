@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect, useMemo, useState } from 'react'
+import React, { memo, /*useCallback,*/ useEffect, useMemo, useState } from 'react'
 import { GiphyFetch } from '@giphy/js-fetch-api'
 import { Gif } from '@giphy/react-components'
 import { FirebaseDatabaseNode } from '@react-firebase/database'
@@ -6,7 +6,7 @@ import { FirebaseDatabaseNode } from '@react-firebase/database'
 import hawesLinks from 'data/hawesLinks.json'
 import smartassLinks from 'data/smartassLinks.json'
 
-import Button from 'components/core/Button'
+// import Button from 'components/core/Button'
 import { Content } from 'components/core/Layout'
 import { Subtitle, Title } from 'components/core/Type'
 import { Links } from 'components/Links'
@@ -15,7 +15,7 @@ const gf = new GiphyFetch(process.env.REACT_APP_GIPHY_API_KEY)
 
 const HawesPage = () => {
 	const [gif, setGif] = useState()
-	const [limit, setLimit] = useState(20)
+	const [limit /*, setLimit*/] = useState(50)
 
 	useEffect(() => {
 		async function fetchData() {
@@ -42,9 +42,9 @@ const HawesPage = () => {
 		)
 	}, [gif])
 
-	const handleLoadMore = useCallback(() => {
-		setLimit(prev => prev + 2)
-	}, [])
+	// const handleLoadMore = useCallback(() => {
+	// 	setLimit(prev => prev + 2)
+	// }, [])
 
 	return (
 		<>
@@ -70,9 +70,9 @@ const HawesPage = () => {
 										return <li key={key}>{value[key].comment}</li>
 									})}
 								</ul>
-								<Button onClick={handleLoadMore} small>
+								{/* <Button onClick={handleLoadMore} small>
 									Load more
-								</Button>
+								</Button> */}
 							</React.Fragment>
 						)
 					}}
