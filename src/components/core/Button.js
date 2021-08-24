@@ -10,7 +10,6 @@ const Wrapper = styled.div`
 
 const StyledButton = styled(Link)`
 	border: 2px solid #222;
-	margin: 16px;
 	font-weight: 700;
 	border-radius: 8px;
 	background-color: #efefef;
@@ -21,6 +20,7 @@ const StyledButton = styled(Link)`
 		background-color: ${props => (props.disabled ? '#efefef' : '#dedede')};
 	}
 
+	margin: ${props => (props.small ? '8px' : '16px')};
 	font-size: ${props => (props.small ? '20px' : '32px')};
 	padding: ${props => (props.small ? '8px 16px' : '16px 32px')};
 	min-width: ${props => (props.small ? '175px' : '300px')};

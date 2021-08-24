@@ -97,7 +97,7 @@ Feedback.Container = styled.div`
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	padding: 16px 8px;
+	padding: 16px 16px;
 	border: 1px solid #dedede;
 	border-radius: 8px;
 	margin: 16px 8px;
