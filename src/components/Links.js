@@ -1,20 +1,27 @@
 import React, { memo } from 'react'
+import { styled } from '@linaria/react'
 
 import { H3 } from './core/Type'
 
 export const Links = memo(({ links }) => {
 	return (
-		<ul>
+		<LinkList>
 			{links.map(link => (
-				<li key={link.title}>
+				<Link key={link.title}>
 					<a href={link.href} target="_blank" rel="noreferrer">
 						{link.title}
 					</a>
-				</li>
+				</Link>
 			))}
-		</ul>
+		</LinkList>
 	)
 })
+
+const Link = styled.div`
+	padding: 8px 0px;
+	margin-left: 8px;
+`
+const LinkList = styled.div``
 
 export const LinkGroups = ({ groups }) => {
 	return (

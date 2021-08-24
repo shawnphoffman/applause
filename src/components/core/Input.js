@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react'
 
 export const InputGroup = styled.div`
-	margin: 16px 0px;
+	margin: 16px 8px;
 `
 
 export const Label = styled.label`
@@ -19,7 +19,7 @@ export const Input = styled.input`
 	min-width: 0px;
 	display: block;
 	width: 100%;
-	padding: 8px;
+	padding: 16px;
 	appearance: none;
 	font-size: inherit;
 	line-height: inherit;

@@ -1,6 +1,7 @@
 import React, { memo, /*useCallback,*/ useEffect, useMemo, useState } from 'react'
 import { GiphyFetch } from '@giphy/js-fetch-api'
 import { Gif } from '@giphy/react-components'
+import { styled } from '@linaria/react'
 import { FirebaseDatabaseNode } from '@react-firebase/database'
 
 import hawesLinks from 'data/hawesLinks.json'
@@ -32,13 +33,9 @@ const HawesPage = () => {
 
 		const finalGif = gif.images.fixed_height
 		return (
-			<div style={{ display: 'flex', justifyContent: 'center' }}>
+			<GifContainer>
 				<Gif gif={gif} width={finalGif.width} noLink />
-				{/* <video width={finalGif.width} height={finalGif.height} autoPlay loop muted playsInline>
-					<source src={finalGif.mp4} type="video/mp4" />
-					Your browser does not support the video tag.
-				</video> */}
-			</div>
+			</GifContainer>
 		)
 	}, [gif])
 
@@ -65,11 +62,16 @@ const HawesPage = () => {
 
 						return (
 							<React.Fragment>
-								<ul>
+								<div>
 									{Object.keys(value).map(key => {
-										return <li key={key}>{value[key].comment}</li>
+										return (
+											<Feedback.Container key={key}>
+												<Feedback.Comment>"{value[key].comment}"</Feedback.Comment>
+												<Feedback.Name>{value[key].name}</Feedback.Name>
+											</Feedback.Container>
+										)
 									})}
-								</ul>
+								</div>
 								{/* <Button onClick={handleLoadMore} small>
 									Load more
 								</Button> */}
@@ -93,5 +95,31 @@ const HawesPage = () => {
 		</>
 	)
 }
+
+const GifContainer = styled.div`
+	display: flex;
+	justify-content: center;
+`
+
+const Feedback = {}
+Feedback.Container = styled.div`
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 16px 8px;
+	border: 1px solid #dedede;
+	border-radius: 8px;
+	margin: 16px 8px;
+`
+Feedback.Comment = styled.div`
+	flex: 1;
+	margin-right: 8px;
+`
+Feedback.Name = styled.div`
+	flex: 1;
+	text-overflow: ellipsis;
+	max-width: 150px;
+	overflow: hidden;
+`
 
 export default memo(HawesPage)
