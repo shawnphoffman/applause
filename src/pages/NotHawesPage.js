@@ -58,7 +58,16 @@ const NotHawesPage = () => {
 							{/*  */}
 							<InputGroup>
 								<Label htmlFor="comment">Comment</Label>
-								<Input type="text" id="comment" name="comment" placeholder="Put something nice here" ref={commentFieldRef} required />
+								<Input
+									as="textarea"
+									type="text"
+									id="comment"
+									name="comment"
+									placeholder="Put something nice here"
+									ref={commentFieldRef}
+									rows="4"
+									required
+								/>
 							</InputGroup>
 							{/*  */}
 							<InputGroup>
