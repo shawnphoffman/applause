@@ -53,16 +53,18 @@ const HawesPage = () => {
 						return (
 							<React.Fragment>
 								<div>
-									{Object.keys(value).map(key => {
-										const feedback = value[key]
-										if (!feedback.approved) return null
-										return (
-											<Feedback.Container key={key}>
-												<Feedback.Comment>"{feedback.comment}"</Feedback.Comment>
-												<Feedback.Name>{feedback.name}</Feedback.Name>
-											</Feedback.Container>
-										)
-									})}
+									{Object.keys(value)
+										.reverse()
+										.map(key => {
+											const feedback = value[key]
+											if (!feedback.approved) return null
+											return (
+												<Feedback.Container key={key}>
+													<Feedback.Comment>"{feedback.comment}"</Feedback.Comment>
+													<Feedback.Name>{feedback.name}</Feedback.Name>
+												</Feedback.Container>
+											)
+										})}
 								</div>
 							</React.Fragment>
 						)

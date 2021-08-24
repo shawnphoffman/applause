@@ -84,25 +84,28 @@ const FeedbackApprovals = () => {
 						return (
 							<React.Fragment>
 								<div>
-									{Object.keys(value).map(key => {
-										const feedback = value[key]
-										// if (feedback.approved) return null
-										return (
-											<Feedback.Container key={key}>
-												<Feedback.Comment>"{feedback.comment}"</Feedback.Comment>
-												<Feedback.Name>{feedback.name}</Feedback.Name>
-												<Feedback.Name>Approved: {String(feedback.approved)}</Feedback.Name>
-												<Feedback.ActionWrapper>
-													<Button onClick={() => RejectFeedback(key, feedback, runMutation)} small>
-														Reject
-													</Button>
-													<Button onClick={() => ApproveFeedback(key, feedback, runMutation)} small>
-														Approve
-													</Button>
-												</Feedback.ActionWrapper>
-											</Feedback.Container>
-										)
-									})}
+									{Object.keys(value)
+										.reverse()
+										.map(key => {
+											const feedback = value[key]
+											const state = feedback.approved === true ? '#90ee90' : feedback.approved === false ? '#ffcccb' : '#fafad2'
+											// if (feedback.approved) return null
+											return (
+												<Feedback.Container key={key} state={state}>
+													<Feedback.Comment>"{feedback.comment}"</Feedback.Comment>
+													<Feedback.Name>{feedback.name}</Feedback.Name>
+													<Feedback.Name>Approved: {String(feedback.approved)}</Feedback.Name>
+													<Feedback.ActionWrapper>
+														<Button onClick={() => RejectFeedback(key, feedback, runMutation)} small>
+															Reject
+														</Button>
+														<Button onClick={() => ApproveFeedback(key, feedback, runMutation)} small>
+															Approve
+														</Button>
+													</Feedback.ActionWrapper>
+												</Feedback.Container>
+											)
+										})}
 								</div>
 							</React.Fragment>
 						)
@@ -122,6 +125,8 @@ Feedback.Container = styled.div`
 	border: 1px solid #dedede;
 	border-radius: 8px;
 	margin: 16px 8px;
+
+	background-color: ${props => props.state};
 `
 Feedback.Comment = styled.div`
 	flex: 1;
