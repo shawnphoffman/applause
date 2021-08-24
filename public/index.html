@@ -24,17 +24,57 @@
 	<!-- Critical CSS -->
 	<!-- TODO - Automate this. Critters? -->
 	<style>
-		/* html {
+		html {
 			margin: 0px;
 			line-height: 1.15;
 		}
 
 		body {
-			font-family: 'Open Sans', sans-serif;
+			font-family: 'Urbanist', sans-serif;
 			margin: 0px;
 			padding: 0px;
 			content-visibility: auto;
-		} */
+			/* height: 100vh; */
+		}
+
+		a {
+			text-decoration: none;
+			color: inherit;
+		}
+
+		@media screen {
+			a:hover {
+				text-decoration: underline;
+			}
+		}
+
+		[type=checkbox],
+		[type=radio] {
+			box-sizing: border-box;
+			padding: 0;
+		}
+
+		button,
+		input {
+			overflow: visible;
+		}
+
+		button,
+		input,
+		optgroup,
+		select,
+		textarea {
+			font-family: inherit;
+			font-size: 100%;
+			line-height: 1.15;
+			margin: 0;
+		}
+
+		#github {
+			display: block;
+			padding: 16px;
+			text-align: right;
+		}
 	</style>
 
 	<!-- Google Fonts -->
@@ -54,6 +94,11 @@
 <body>
 	<noscript>You need to enable JavaScript to run this app.</noscript>
 	<div id="root"></div>
+	<div id="github">
+		<a href="https://github.com/shawnphoffman/applause" target="_blank" rel="noreferrer">
+			Github
+		</a>
+	</div>
 </body>
 
 </html>

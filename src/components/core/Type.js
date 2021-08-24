@@ -7,7 +7,8 @@ export const Title = styled.h1`
 	margin: 64px 8px;
 
 	@media (max-width: 420px) {
-		font-size: 72px;
+		font-size: 64px;
+		letter-spacing: 2px;
 	}
 `
 
