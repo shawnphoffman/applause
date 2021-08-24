@@ -110,16 +110,29 @@ Feedback.Container = styled.div`
 	border: 1px solid #dedede;
 	border-radius: 8px;
 	margin: 16px 8px;
+
+	@media (max-width: 420px) {
+		flex-direction: column;
+	}
 `
 Feedback.Comment = styled.div`
 	flex: 1;
 	margin-right: 8px;
+
+	@media (max-width: 420px) {
+		margin-right: 0;
+		margin-bottom: 8px;
+	}
 `
 Feedback.Name = styled.div`
 	flex: 1;
 	text-overflow: ellipsis;
 	max-width: 150px;
 	overflow: hidden;
+
+	@media (max-width: 420px) {
+		max-width: unset;
+	}
 `
 
 export default memo(HawesPage)
