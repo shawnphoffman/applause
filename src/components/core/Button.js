@@ -18,13 +18,15 @@ const StyledButton = styled(Link)`
 	display: inline-block;
 
 	&:hover {
-		text-decoration: none;
-		background-color: #dedede;
+		background-color: ${props => (props.disabled ? '#efefef' : '#dedede')};
 	}
 
 	font-size: ${props => (props.small ? '20px' : '32px')};
 	padding: ${props => (props.small ? '8px 16px' : '16px 32px')};
 	min-width: ${props => (props.small ? '175px' : '300px')};
+
+	text-decoration: ${props => (props.disabled ? 'line-through' : 'none')};
+	cursor: ${props => (props.disabled ? 'default' : 'pointer')};
 `
 
 const Button = ({ eventName, ...rest }) => {

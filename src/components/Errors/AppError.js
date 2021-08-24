@@ -6,8 +6,8 @@ const Wrapper = styled.div`
 	width: 100vw;
 	display: flex;
 	align-items: center;
-	background: #231f20;
-	color: white;
+	/* background: #231f20; */
+	/* color: white; */
 	font-size: 18px;
 	font-weight: bold;
 	flex-direction: column;
@@ -18,7 +18,7 @@ const Hero = styled.div`
 	font-size: 7em;
 	text-transform: uppercase;
 	font-weight: bold;
-	color: #ffb94c;
+	/* color: #ffb94c; */
 `
 
 const Error = () => {
