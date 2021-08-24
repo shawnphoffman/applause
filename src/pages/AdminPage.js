@@ -93,7 +93,7 @@ const FeedbackApprovals = () => {
 											<Feedback.Container key={key}>
 												<Feedback.Comment>"{feedback.comment}"</Feedback.Comment>
 												<Feedback.Name>{feedback.name}</Feedback.Name>
-												<Feedback.Name>Approved: {feedback.approved.toString()}</Feedback.Name>
+												<Feedback.Name>Approved: {String(feedback.approved)}</Feedback.Name>
 												<Feedback.ActionWrapper>
 													<Button onClick={() => RejectFeedback(key, feedback, runMutation)} small>
 														Reject

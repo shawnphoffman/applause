@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useRef } from 'react'
+import React, { memo, useCallback, useEffect, useRef, useState } from 'react'
 import { styled } from '@linaria/react'
 import { FirebaseDatabaseMutation } from '@react-firebase/database'
 import firebase from 'firebase'
@@ -19,6 +19,15 @@ const Form = styled.form`
 const NotHawesPage = () => {
 	const commentFieldRef = useRef()
 	const nameFieldRef = useRef()
+	const [success, setSuccess] = useState(false)
+
+	useEffect(() => {
+		if (success) {
+			setTimeout(() => {
+				setSuccess(false)
+			}, 5000)
+		}
+	}, [success])
 
 	const handleSubmit = useCallback(
 		runMutation => async ev => {
@@ -31,6 +40,7 @@ const NotHawesPage = () => {
 			})
 			commentFieldRef.current.value = ''
 			nameFieldRef.current.value = ''
+			setSuccess(true)
 		},
 		[]
 	)
@@ -41,18 +51,19 @@ const NotHawesPage = () => {
 			<Content>
 				{/*  */}
 				<Subtitle>Leave Feedback for Hawes</Subtitle>
+				{success && <Success>Feedback submitted successfully</Success>}
 				<FirebaseDatabaseMutation type="push" path="feedback">
 					{({ runMutation }) => (
 						<Form onSubmit={handleSubmit(runMutation)}>
 							{/*  */}
 							<InputGroup>
 								<Label htmlFor="comment">Comment</Label>
-								<Input type="text" id="comment" name="comment" placeholder="Put something nice here" ref={nameFieldRef} required />
+								<Input type="text" id="comment" name="comment" placeholder="Put something nice here" ref={commentFieldRef} required />
 							</InputGroup>
 							{/*  */}
 							<InputGroup>
 								<Label htmlFor="name">Name</Label>
-								<Input type="text" id="name" name="name" placeholder="Who are you?" ref={commentFieldRef} required />
+								<Input type="text" id="name" name="name" placeholder="Who are you?" ref={nameFieldRef} required />
 							</InputGroup>
 							{/*  */}
 							<Button type="submit" small>
@@ -68,5 +79,14 @@ const NotHawesPage = () => {
 		</>
 	)
 }
+
+const Success = styled.div`
+	color: #165001;
+	padding: 8px;
+	border: 1px solid #165001;
+	background: #90ee90;
+	border-radius: 4px;
+	margin: 0px 8px;
+`
 
 export default memo(NotHawesPage)

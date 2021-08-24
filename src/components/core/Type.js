@@ -23,8 +23,4 @@ export const Subtitle = styled.h2`
 export const H3 = styled.h3`
 	font-size: 24px;
 	color: #333;
-
-	@media (max-width: 420px) {
-		font-size: 18px;
-	}
 `

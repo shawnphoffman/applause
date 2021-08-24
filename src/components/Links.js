@@ -20,6 +20,7 @@ export const Links = memo(({ links }) => {
 const Link = styled.div`
 	padding: 8px 0px;
 	margin-left: 8px;
+	font-size: 20px;
 `
 const LinkList = styled.div``
 
