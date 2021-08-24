@@ -1,13 +1,17 @@
-import React, { memo } from 'react'
+import React, { memo, useCallback } from 'react'
 import { styled } from '@linaria/react'
+import * as Panelbear from '@panelbear/panelbear-js'
 
 import { H3 } from './core/Type'
 
 export const Links = memo(({ links }) => {
+	const handleClick = useCallback((name, href) => {
+		Panelbear.track(`Link Click - ${name} - ${href}`)
+	}, [])
 	return (
 		<LinkList>
 			{links.map(link => (
-				<Link key={link.title}>
+				<Link key={link.title} onClick={() => handleClick(link.title, link.href)}>
 					<a href={link.href} target="_blank" rel="noreferrer">
 						{link.title}
 					</a>

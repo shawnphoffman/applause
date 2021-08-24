@@ -38,7 +38,9 @@ function App() {
 										<AdminPage />
 									</Route>
 									<Content>
-										<Button to="/">Back</Button>
+										<Button to="/" eventName="back">
+											Back
+										</Button>
 									</Content>
 								</Route>
 							</Switch>

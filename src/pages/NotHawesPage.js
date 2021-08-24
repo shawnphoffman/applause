@@ -66,7 +66,7 @@ const NotHawesPage = () => {
 								<Input type="text" id="name" name="name" placeholder="Who are you?" ref={nameFieldRef} required />
 							</InputGroup>
 							{/*  */}
-							<Button type="submit" small>
+							<Button type="submit" eventName="submit" small>
 								Submit
 							</Button>
 						</Form>
