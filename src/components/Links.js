@@ -5,13 +5,13 @@ import * as Panelbear from '@panelbear/panelbear-js'
 import { H3 } from './core/Type'
 
 export const Links = memo(({ links }) => {
-	const handleClick = useCallback((name, href) => {
-		Panelbear.track(`Link Click - ${name} - ${href}`)
+	const handleClick = useCallback(name => {
+		Panelbear.track(`link_${name.replace(/\s/g, '_')}`)
 	}, [])
 	return (
 		<LinkList>
 			{links.map(link => (
-				<Link key={link.title} onClick={() => handleClick(link.title, link.href)}>
+				<Link key={link.title} onClick={() => handleClick(link.title)}>
 					<a href={link.href} target="_blank" rel="noreferrer">
 						{link.title}
 					</a>

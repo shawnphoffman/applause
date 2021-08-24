@@ -32,7 +32,7 @@ const StyledButton = styled(Link)`
 const Button = ({ eventName, ...rest }) => {
 	const handleClick = useCallback(() => {
 		if (eventName) {
-			Panelbear.track(`Button Click - ${eventName}`)
+			Panelbear.track(`click_${eventName.replace(/\s/g, '')}`)
 		}
 	}, [eventName])
 
