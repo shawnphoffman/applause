@@ -1,4 +1,4 @@
-import React, { memo, /*useCallback,*/ useEffect, useMemo, useState } from 'react'
+import React, { memo, useEffect, useMemo, useState } from 'react'
 import { GiphyFetch } from '@giphy/js-fetch-api'
 import { Gif } from '@giphy/react-components'
 import { styled } from '@linaria/react'
@@ -7,7 +7,6 @@ import { FirebaseDatabaseNode } from '@react-firebase/database'
 import hawesLinks from 'data/hawesLinks.json'
 import smartassLinks from 'data/smartassLinks.json'
 
-// import Button from 'components/core/Button'
 import { Content } from 'components/core/Layout'
 import { Subtitle, Title } from 'components/core/Type'
 import { Links } from 'components/Links'
@@ -16,7 +15,7 @@ const gf = new GiphyFetch(process.env.REACT_APP_GIPHY_API_KEY)
 
 const HawesPage = () => {
 	const [gif, setGif] = useState()
-	const [limit /*, setLimit*/] = useState(50)
+	const [limit /*, setLimit*/] = useState(100)
 
 	useEffect(() => {
 		async function fetchData() {
@@ -39,10 +38,6 @@ const HawesPage = () => {
 		)
 	}, [gif])
 
-	// const handleLoadMore = useCallback(() => {
-	// 	setLimit(prev => prev + 2)
-	// }, [])
-
 	return (
 		<>
 			<Title>Welcome, Hawes!</Title>
@@ -51,12 +46,7 @@ const HawesPage = () => {
 				<Subtitle>Recent Feedback</Subtitle>
 				<FirebaseDatabaseNode path="feedback/" limitToFirst={limit} orderByValue={'created_on'}>
 					{data => {
-						const {
-							value,
-							// isLoading
-						} = data
-
-						// if (isLoading) return <div>LOADING</div>
+						const { value } = data
 
 						if (value === null || typeof value === 'undefined') return null
 
@@ -64,17 +54,16 @@ const HawesPage = () => {
 							<React.Fragment>
 								<div>
 									{Object.keys(value).map(key => {
+										const feedback = value[key]
+										if (!feedback.approved) return null
 										return (
 											<Feedback.Container key={key}>
-												<Feedback.Comment>"{value[key].comment}"</Feedback.Comment>
-												<Feedback.Name>{value[key].name}</Feedback.Name>
+												<Feedback.Comment>"{feedback.comment}"</Feedback.Comment>
+												<Feedback.Name>{feedback.name}</Feedback.Name>
 											</Feedback.Container>
 										)
 									})}
 								</div>
-								{/* <Button onClick={handleLoadMore} small>
-									Load more
-								</Button> */}
 							</React.Fragment>
 						)
 					}}
