@@ -56,7 +56,6 @@ const AdminPage = () => {
 
 const FeedbackApprovals = () => {
 	const RejectFeedback = useCallback(async (key, feedback, runMutation) => {
-		console.log('Reject', key)
 		await runMutation({
 			[key]: {
 				...feedback,
@@ -66,7 +65,6 @@ const FeedbackApprovals = () => {
 	}, [])
 
 	const ApproveFeedback = useCallback(async (key, feedback, runMutation) => {
-		console.log('Approve', key)
 		await runMutation({
 			[key]: {
 				...feedback,
