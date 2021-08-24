@@ -37,8 +37,9 @@ const Button = ({ eventName, ...rest }) => {
 	}, [eventName])
 
 	const isLink = !!rest.to || !!rest.href
+	const isButton = rest.type === 'submit'
 
-	const as = isLink ? Link : 'div'
+	const as = isLink ? Link : isButton ? 'button' : 'div'
 
 	return (
 		<Wrapper onClick={handleClick}>

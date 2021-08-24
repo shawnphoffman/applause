@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useRef, useState } from 'react'
+import React, { memo, useCallback, useRef } from 'react'
 import { styled } from '@linaria/react'
 import { FirebaseDatabaseMutation } from '@react-firebase/database'
 import firebase from 'firebase'
@@ -23,30 +23,17 @@ const NotHawesPage = () => {
 	const handleSubmit = useCallback(
 		runMutation => async ev => {
 			ev.preventDefault()
-			// const comment = get(commentFieldRef, 'current.value', '')
-			// const name = get(nameFieldRef, 'current.value', '')
 			await runMutation({
 				comment: commentFieldRef.current.value,
 				name: nameFieldRef.current.value,
 				created_at: firebase.database.ServerValue.TIMESTAMP,
 				updated_at: firebase.database.ServerValue.TIMESTAMP,
 			})
-			// set(commentFieldRef, 'current.value', '')
-			// set(nameFieldRef, 'current.value', '')
 			commentFieldRef.current.value = ''
 			nameFieldRef.current.value = ''
 		},
 		[]
 	)
-
-	const handleChange = useCallback(() => {
-		const valid = !!commentFieldRef.current.value && !!nameFieldRef.current.value
-		console.log('handleChange', {
-			valid,
-			comment: commentFieldRef.current.value,
-			name: nameFieldRef.current.value,
-		})
-	}, [])
 
 	return (
 		<>
@@ -60,28 +47,12 @@ const NotHawesPage = () => {
 							{/*  */}
 							<InputGroup>
 								<Label htmlFor="comment">Comment</Label>
-								<Input
-									type="text"
-									id="comment"
-									name="comment"
-									placeholder="Put something nice here"
-									ref={nameFieldRef}
-									onChange={handleChange}
-									required
-								/>
+								<Input type="text" id="comment" name="comment" placeholder="Put something nice here" ref={nameFieldRef} required />
 							</InputGroup>
 							{/*  */}
 							<InputGroup>
 								<Label htmlFor="name">Name</Label>
-								<Input
-									type="text"
-									id="name"
-									name="name"
-									placeholder="Who are you?"
-									ref={commentFieldRef}
-									onChange={handleChange}
-									required
-								/>
+								<Input type="text" id="name" name="name" placeholder="Who are you?" ref={commentFieldRef} required />
 							</InputGroup>
 							{/*  */}
 							<Button type="submit" small>
