@@ -12,13 +12,15 @@ const LandingPage = () => {
 		<>
 			<Title>Are you Hawes?</Title>
 			<Content>
+				{/*  */}
 				<Button to="/hawes" eventName="hawes">
 					Yes
 				</Button>
+				{/*  */}
 				<Button to="/not-hawes" eventName="not_hawes">
 					No
 				</Button>
-
+				{/*  */}
 				<FirebaseAuthConsumer>
 					{({ isSignedIn }) => {
 						return isSignedIn ? (

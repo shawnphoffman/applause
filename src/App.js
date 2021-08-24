@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
-import { FirebaseAuthConsumer, FirebaseAuthProvider } from '@react-firebase/auth'
+import { FirebaseAuthProvider } from '@react-firebase/auth'
 import { FirebaseDatabaseProvider } from '@react-firebase/database'
 import * as Sentry from '@sentry/react'
 import firebase from 'firebase'
@@ -34,15 +34,9 @@ function App() {
 									<Route path="/not-hawes">
 										<NotHawesPage />
 									</Route>
-									<FirebaseAuthConsumer>
-										{({ isSignedIn }) => {
-											return isSignedIn ? (
-												<Route path="/admin">
-													<AdminPage />
-												</Route>
-											) : null
-										}}
-									</FirebaseAuthConsumer>
+									<Route path="/admin">
+										<AdminPage />
+									</Route>
 									<Content>
 										<Button to="/">Back</Button>
 									</Content>

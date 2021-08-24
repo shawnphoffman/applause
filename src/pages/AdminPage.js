@@ -4,8 +4,6 @@ import React, { memo } from 'react'
 import { FirebaseAuthConsumer } from '@react-firebase/auth'
 
 import Button from 'components/core/Button'
-// import get from 'lodash.get'
-// import set from 'lodash.set'
 import { Content } from 'components/core/Layout'
 import { Subtitle, Title } from 'components/core/Type'
 
@@ -35,8 +33,8 @@ const AdminPage = () => {
 						} else {
 							return (
 								<>
-									<Subtitle>Sign-in to Continue</Subtitle>
 									<Button
+										small
 										onClick={() => {
 											const googleAuthProvider = new firebase.auth.GoogleAuthProvider()
 											firebase.auth().signInWithPopup(googleAuthProvider)
