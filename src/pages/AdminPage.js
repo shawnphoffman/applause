@@ -136,6 +136,10 @@ Feedback.ActionWrapper = styled.div`
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
+
+	@media (max-width: 420px) {
+		flex-direction: column;
+	}
 `
 
 export default memo(AdminPage)
