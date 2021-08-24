@@ -11,8 +11,8 @@ export const Links = memo(({ links }) => {
 	return (
 		<LinkList>
 			{links.map(link => (
-				<Link key={link.title} onClick={() => handleClick(link.title)}>
-					<a href={link.href} target="_blank" rel="noreferrer">
+				<Link key={link.title}>
+					<a href={link.href} target="_blank" rel="noreferrer" onClick={() => handleClick(link.title)}>
 						{link.title}
 					</a>
 				</Link>
