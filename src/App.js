@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import { FirebaseAuthConsumer, FirebaseAuthProvider } from '@react-firebase/auth'
 import { FirebaseDatabaseProvider } from '@react-firebase/database'
 import * as Sentry from '@sentry/react'
