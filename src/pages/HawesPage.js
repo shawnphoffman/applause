@@ -10,6 +10,7 @@ import smartassLinks from 'data/smartassLinks.json'
 import { Content } from 'components/core/Layout'
 import { Subtitle, Title } from 'components/core/Type'
 import { Links } from 'components/Links'
+import Soundboard from 'components/Soundboard'
 
 const gf = new GiphyFetch(process.env.REACT_APP_GIPHY_API_KEY)
 
@@ -74,6 +75,10 @@ const HawesPage = () => {
 				{/*  */}
 				<Subtitle>Moral Support</Subtitle>
 				{renderGif}
+
+				{/*  */}
+				<Subtitle>Fun Stuff</Subtitle>
+				<Soundboard />
 
 				{/*  */}
 				<Subtitle>Feel Good Links</Subtitle>

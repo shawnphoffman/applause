@@ -10,6 +10,7 @@ import { Input, InputGroup, Label } from 'components/core/Input'
 import { Content } from 'components/core/Layout'
 import { Subtitle, Title } from 'components/core/Type'
 import { LinkGroups } from 'components/Links'
+import Soundboard from 'components/Soundboard'
 
 const Form = styled.form`
 	display: block;
@@ -84,6 +85,10 @@ const NotHawesPage = () => {
 				{/*  */}
 				<Subtitle>Useful Links</Subtitle>
 				<LinkGroups groups={externalLinks} />
+
+				{/*  */}
+				<Subtitle>Fun Stuff</Subtitle>
+				<Soundboard />
 			</Content>
 		</>
 	)

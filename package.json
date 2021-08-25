@@ -18,6 +18,7 @@
 		"lodash.get": "^4.4.2",
 		"lodash.set": "^4.3.2",
 		"react": "^0.0.0-experimental-bd070eb2c",
+		"react-audio-player": "^0.17.0",
 		"react-dom": "^0.0.0-experimental-bd070eb2c",
 		"react-router-dom": "^5.2.0",
 		"react-scripts": "4.0.1",
